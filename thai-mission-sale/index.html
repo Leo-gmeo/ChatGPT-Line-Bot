@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>泰愛心手作義賣 | 支持泰國宣教</title>
+    <!-- Font Awesome 6 (免費圖標庫) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fbf5e8 0%, #f7efdf 100%);
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', '微軟正黑體', system-ui, -apple-system, sans-serif;
+            color: #2c2418;
+            line-height: 1.5;
+            padding: 2rem 1.2rem;
+        }
+
+        /* 柔和主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 254, 250, 0.9);
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            backdrop-filter: blur(0px);
+            transition: all 0.2s ease;
+        }
+
+        /* 裝飾性邊框條 (泰國風格) */
+        .thai-border {
+            height: 8px;
+            background: linear-gradient(90deg, #E27D5E, #C55A3B, #F4A261, #E9C46A, #2A9D8F, #264653);
+            width: 100%;
+        }
+
+        /* 頭部區塊 */
+        .hero {
+            padding: 2.5rem 2rem 1.8rem;
+            text-align: center;
+            background: #ffffffc9;
+            border-bottom: 2px solid #f3e1c0;
+        }
+
+        .hero-icon {
+            font-size: 3.2rem;
+            color: #b7653b;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3e6b5e, #b85c2a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #6f4e2e;
+            border-top: 1px solid #f0e0ca;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .mission {
+            background: #ffe8d4b3;
+            margin: 1.2rem 1.5rem;
+            padding: 1.3rem 1.5rem;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #3e2a1f;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #fff1e2;
+        }
+
+        .mission i {
+            color: #c0673a;
+            margin-right: 8px;
+        }
+
+        .mission strong {
+            color: #b95b2c;
+        }
+
+        /* 產品主區域 */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .product-card {
+            flex: 1;
+            min-width: 280px;
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            overflow: hidden;
+            border: 1px solid #f7e5d3;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 28px -14px rgba(97, 55, 26, 0.2);
+        }
+
+        .card-img {
+            background: #fdf6ed;
+            text-align: center;
+            padding: 1.8rem 0 1rem;
+            font-size: 4rem;
+            color: #bb794c;
+            border-bottom: 1px solid #f7e2cd;
+        }
+
+        .card-content {
+            padding: 1.5rem 1.5rem 1.8rem;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .price-tag {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #c1662c;
+            letter-spacing: 1px;
+            margin: 0.5rem 0 0.8rem;
+            display: inline-block;
+            background: #fef2e6;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+        }
+
+        .price-tag small {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #8b694c;
+        }
+
+        .desc {
+            color: #4a3727;
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .highlight {
+            background: #fcf5ea;
+            padding: 0.6rem 1rem;
+            border-radius: 28px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-left: 4px solid #dd9866;
+        }
+
+        .color-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0 8px;
+            align-items: center;
+        }
+
+        .color-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f3ede6;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 0 0 1px #fff6;
+        }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            background: #d88453;
+            border: none;
+            padding: 12px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 48px;
+            margin-top: 1.4rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            font-family: inherit;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .btn-order i {
+            margin-right: 8px;
+        }
+
+        .btn-order:hover {
+            background: #b56332;
+            transform: scale(0.98);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .badge-handmade {
+            background: #e4cbb2;
+            color: #5e3a22;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 購買方式區塊 */
+        .order-info {
+            background: #efe2d1;
+            margin: 0.5rem 2rem 2rem;
+            border-radius: 36px;
+            padding: 1.5rem 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-text {
+            flex: 2;
+        }
+
+        .info-text h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3b2a1c;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text p {
+            margin: 0.4rem 0;
+            color: #3f2e20;
+        }
+
+        .contact-card {
+            background: #fff9f2;
+            padding: 1rem 1.5rem;
+            border-radius: 32px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .contact-card i {
+            font-size: 1.8rem;
+            color: #b96f40;
+        }
+
+        .verse {
+            text-align: center;
+            font-style: italic;
+            padding: 1.8rem 2rem 1rem;
+            font-size: 1rem;
+            color: #785f45;
+            border-top: 1px solid #f3e2d0;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            padding: 1.5rem;
+            color: #866b4f;
+            background: #fef7ef;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .products {
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            .order-info {
+                flex-direction: column;
+                text-align: center;
+                margin: 0.5rem 1rem 2rem;
+            }
+            .hero {
+                padding: 1.8rem 1rem;
+            }
+            .price-tag {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* 青草油特殊標籤 */
+        .oil-badge {
+            background: #2e241d;
+            color: #f3e2cd;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .small-note {
+            font-size: 0.75rem;
+            color: #b47c56;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="thai-border"></div>
+    <!-- 主視覺區 -->
+    <div class="hero">
+        <div class="hero-icon">
+            <i class="fas fa-hands-helping"></i> <i class="fas fa-leaf"></i> <i class="fas fa-church"></i>
+        </div>
+        <h1>泰愛心 · 宣教義賣</h1>
+        <div class="hero-sub">🇹🇭 泰國清邁手作 · 祝福跨海傳愛 🇹🇭</div>
+        <p style="margin-top: 12px; font-weight: 500;">支持泰國宣教士經費 | 每一份購買都是宣教的一份力</p>
+    </div>
+
+    <!-- 異象使命 -->
+    <div class="mission">
+        <i class="fas fa-praying-hands"></i> 泰國當地教會的學生與老師親手製作 · 滿載禱告與祝福 <br>
+        <strong>香皂</strong> 天然手作 ｜ <strong>青草油</strong> 泰式古法草本 ｜ 義賣所得全數投入 <strong>泰國宣教基金</strong> 
+        <i class="fas fa-heart" style="color:#d46b3a;"></i>
+    </div>
+
+    <!-- 產品區塊 -->
+    <div class="products">
+        <!-- 香皂卡片 -->
+        <div class="product-card">
+            <div class="card-img">
+                <i class="fas fa-pump-soap"></i> <i class="fas fa-seedling"></i>
+            </div>
+            <div class="card-content">
+                <div class="badge-handmade"><i class="fas fa-hand-sparkles"></i> 泰國師生手搗冷製皂</div>
+                <div class="product-title">
+                    天然手工皂
+                    <span style="font-size:0.8rem; background:#fff0e4; padding:2px 10px; border-radius:30px;">無外盒・環保簡約</span>
+                </div>
+                <div class="price-tag">NT$ 50 <small>/ 每個</small></div>
+                <div class="desc">
+                    🌿 溫和純淨配方，滋潤不乾澀。由泰國教會學生與老師一顆顆親手製作，使用天然植物素材，無動物實驗。
+                    目前無個別外盒，但使用可分解包裝紙，環保愛地球。
+                </div>
+                <div class="highlight">
+                    <i class="fas fa-palette"></i> 繽紛手作色系 · 可選色
+                    <div class="color-list">
+                        <span class="color-chip"><span class="color-dot" style="background: #7EA86E;"></span> 綠</span>
+                        <span class="color-chip"><span class="color-dot" style="background: #F4A261;"></span> 橘</span>
+                        <span class="color-chip"><span class="color-dot" style="background: #F3A0B5;"></span> 粉</span>
+                        <span class="color-chip"><span class="color-dot" style="background: #6DA1C3;"></span> 藍</span>
+                        <span class="color-chip"><span class="color-dot" style="background: #F9E2B7;"></span> 奶白</span>
+                    </div>
+                    <div class="small-note">＊訂購時請告知偏好顏色，我們將盡力為您搭配（數量有限）</div>
+                </div>
+                <div class="desc">
+                    <i class="fas fa-recycle"></i> 無過度包裝，讓溫暖心意直接傳遞。每塊手工皂都是獨一無二。
+                </div>
+                <button class="btn-order order-soap-btn"><i class="fas fa-shopping-cart"></i> 認購手工皂</button>
+            </div>
+        </div>
+
+        <!-- 青草油卡片 -->
+        <div class="product-card">
+            <div class="card-img">
+                <i class="fas fa-mortar-bottle"></i> <i class="fas fa-flask"></i>
+            </div>
+            <div class="card-content">
+                <div class="badge-handmade"><i class="fas fa-leaf"></i> 泰北傳統草本智慧</div>
+                <div class="product-title">
+                    泰國青草油
+                    <span class="oil-badge">黑色瓶身+禮盒包裝</span>
+                </div>
+                <div class="price-tag">NT$ 300 <small>/ 瓶</small></div>
+                <div class="desc">
+                    🌱 傳承泰國古老草本配方，萃取多種藥草精華，質地清爽易吸收。舒緩疲勞、蚊蟲叮咬、肌肉不適。
+                    由泰國教會老師與學生遵循古法熬製，充滿關懷的祝福。
+                </div>
+                <div class="highlight">
+                    <i class="fas fa-gift"></i> 黑色不透光玻璃瓶身，附精緻包裝盒，送禮自用兩相宜。<br>
+                    <i class="fas fa-check-circle" style="color:#c06838;"></i> 無化學香精，溫和不刺激，大人小孩皆宜（外用）。
+                </div>
+                <div class="desc">
+                    <i class="fas fa-church"></i> 每一瓶青草油，都代表一份對泰國宣教的支持，幫助差派工人與當地學生福音工作。
+                </div>
+                <button class="btn-order order-oil-btn"><i class="fas fa-hand-holding-heart"></i> 認購青草油</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 訂購與聯絡方式 -->
+    <div class="order-info">
+        <div class="info-text">
+            <h3><i class="fas fa-dove"></i> 如何參與義賣？</h3>
+            <p>🔹 歡迎弟兄姊妹於 <strong>主日崇拜前後</strong> 至教會一樓「泰國宣教義賣攤位」現場選購。<br>
+            🔹 若需預訂，請向 <strong>宣教委員會同工</strong> 登記：<i class="fas fa-envelope"></i> 填寫認購單 / 或洽服務台。<br>
+            🔹 <strong>團購優惠</strong>：香皂10個以上免運（限教會內統一取貨），願眾人一起支持神國度擴展。<br>
+            🔹 義賣所得 <u>全數奉獻</u> 作為泰國宣教士生活與事工經費，並支持當地教會學生獎助金。</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-people-arrows"></i>
+            <div style="font-weight: bold; margin: 6px 0;">宣教部聯繫窗口</div>
+            <div>☎️ 陳弟兄 0932-XXX-XXX</div>
+            <div>📧 mission@church.org.tw</div>
+            <div style="font-size:0.75rem; margin-top:6px;">或洽教會辦公室登記</div>
+        </div>
+    </div>
+
+    <!-- 經文＋小提醒 -->
+    <div class="verse">
+        <i class="fas fa-quote-left"></i> 各人要隨本心所酌定的，不要作難，不要勉強，因為捐得樂意的人是神所喜愛的。 ｜ 哥林多後書 9:7<br>
+        🌏 你的每一次支持，都讓泰國的宣教腳步走得更遠，點亮當地學生的生命。
+    </div>
+    <footer>
+        <i class="fas fa-hand-peace"></i> 泰國當地教會師生手作 · 滿載愛與祝福  <br>
+        主辦：教會泰國宣教團隊 ｜ 籌募2025泰北偏鄉福音事工＆學生中心經費
+    </footer>
+</div>
+
+<script>
+    // 簡單的互動提醒 (無實際金流，僅宣導購買管道)
+    const soapBtn = document.querySelector('.order-soap-btn');
+    const oilBtn = document.querySelector('.order-oil-btn');
+    if(soapBtn) {
+        soapBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            alert("感謝您願意支持手工皂！\n請向教會宣教同工或服務台登記購買，並告知您喜愛的顏色(綠/橘/粉/藍/奶白)與數量。\n願神賜福您的愛心奉獻。");
+        });
+    }
+    if(oilBtn) {
+        oilBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            alert("青草油為手工限量製作，每瓶300元，附精美盒裝。\n請洽教會義賣攤位或宣教部同工預訂，支持泰國宣教資金。\n願主紀念您的擺上！");
+        });
+    }
+    // 讓所有按鈕不影響實際表單體驗
+    const allOrderBtns = document.querySelectorAll('.btn-order');
+    allOrderBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if(!e.target.closest('.btn-order')) return;
+            // 已經自帶 alert，但避免二次觸發 保留原本事件。
+        });
+    });
+</script>
+</body>
+</html>
